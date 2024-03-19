@@ -1,3 +1,5 @@
+/**
+
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, TextInput, View, Button, ScrollView } from 'react-native';
 import { useState } from 'react';
@@ -36,6 +38,8 @@ export default function App({email, setEmail, password, setPassword, isLogin, se
     </View>
   );
 
+
+
   // ********************** DATABASE STUFF ********************************
   
   // const [username, setName] = useState('') 
@@ -66,6 +70,11 @@ export default function App({email, setEmail, password, setPassword, isLogin, se
 
   // ********************** DATABASE STUFF ********************************
 }
+
+
+
+
+*/
 
 const styles = StyleSheet.create({
   container: {
