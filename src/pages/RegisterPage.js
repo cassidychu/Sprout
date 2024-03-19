@@ -1,6 +1,7 @@
 // RegisterPage.js
 import { View, Text, TextInput, Button } from 'react-native';
 import React, { useState } from "react";
+import { signUp } from "../services/auth"
 
 
 const RegisterPage = () => {
@@ -14,9 +15,21 @@ const RegisterPage = () => {
     const handleSignup = async () => {
         setLoading(true);
         try{
-            const user = await signup(email, password) //have to make a signup function
-            if()
+            const user = await signUp(email, password) //have to make a signup function
+            if(user){
+              const id = user.id
+              //await saveUserData(id, firstName, lastName) -> save to firestore database
+              //redirect to login page
+            }
 
+        } catch(error){
+          setLoading(false);
+          if(error.code == "auth/email-already-in-use"){
+            alert("Email is already in use. Please use a different email.")
+          }
+          else if{
+            
+          }
         }
     }
 
