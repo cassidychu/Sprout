@@ -2,6 +2,7 @@
 import { initializeApp } from "firebase/app";
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
 import { getAuth } from "firebase/auth"
+import { connectAuthEmulator } from "firebase/auth";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -22,7 +23,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 
 //Initialize firestore
-const db = getFireStore(app)
+const db = getFirestore(app)
 
 //Initialize authentication
 const auth = getAuth(app)

@@ -1,7 +1,7 @@
 // RegisterPage.js
-import { View, Text, TextInput, Button } from 'react-native';
+import { View, Text, TextInput, Button, TouchableOpacity } from 'react-native';
 import React, { useState } from "react";
-import { signUp } from "../services/auth"
+import { signUp } from "../services/userAuth"
 
 
 const RegisterPage = () => {
@@ -27,8 +27,12 @@ const RegisterPage = () => {
           if(error.code == "auth/email-already-in-use"){
             alert("Email is already in use. Please use a different email.")
           }
-          else if{
+          else if (error.code == "auth/weak-password"){
+            alert("Weak password. Please choose a stronger password.")
             
+          }
+          else{
+            alert("Signup error: " + error.message)
           }
         }
     }
@@ -36,10 +40,10 @@ const RegisterPage = () => {
 
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Login Page</Text>
-      <TextInput placeholder="Username" style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20, width: '80%', padding: 10 }} />
-      <TextInput placeholder="Password" secureTextEntry={true} style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20, width: '80%', padding: 10 }} />
-      <Button title="Log In" onPress={() => console.log('Login Pressed')} />
+      <Text>Register Page</Text>
+      <TextInput placeholder="Email" style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20, width: '80%', padding: 10 }} keyboardType="email-address" value = {email} onChangeText = {setEmail}/>
+      <TextInput placeholder="Password" secureTextEntry={true} style={{ height: 40, borderColor: 'gray', borderWidth: 1, marginBottom: 20, width: '80%', padding: 10 }} value = {password} onChangeText = {setPassword}/>
+      <TouchableOpacity onPress={handleSignup}><Text>Register</Text></TouchableOpacity>
     </View>
   );
 };

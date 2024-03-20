@@ -1,10 +1,11 @@
 // App.js
 import React from 'react';
-import LoginPage from './src/pages/LoginPage'; // Adjust the path if your file structure is different
+import RegisterPage from './src/pages/RegisterPage';
+import TestingView from './src/pages/testing.js'
 
 const App = () => {
   return (
-    <LoginPage />
+    <RegisterPage />
   );
 };
 

@@ -1,5 +1,5 @@
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'firebase/auth';
-import { auth } from './firebaseConfig'
+import { auth } from '../../firebaseConfig'
 import React from 'react';
 
 export const signUp = async (email, password) => {
